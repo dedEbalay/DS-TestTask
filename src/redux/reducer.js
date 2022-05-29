@@ -29,15 +29,12 @@ const reducer = (state=initialState, action) => {
                 loadingState: false
             }
         case 'GET_POSTS':
-            function findPosts (array, id) {
-                const  currentUserPosts = array.filter(item => item.userId === id);
-                return currentUserPosts
-            }
             return {
                 ...state,
-                userPosts: findPosts(action.payload, state.currentUserId),
+                userPosts: action.payload
             }
         case 'SET_LOADING':
+            // отладочная команда
             return {
                 ...state,
                 loadingState: true

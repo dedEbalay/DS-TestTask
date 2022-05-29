@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import PostCardPreview from '../PostCardPreview/PostCardPreview';
 import { setUsers, getPosts, getUser, setCurrentUser, setLoading } from '../../redux/actions'
@@ -8,7 +8,6 @@ import { setUsers, getPosts, getUser, setCurrentUser, setLoading } from '../../r
 function UserProfilePage(props) {
 
     const location = useLocation(),
-          navigate = useNavigate(),
           userId = location.pathname.replace(/[^0-9]/g,""),
           pushLink = `/users/${userId}/posts`
 
@@ -19,7 +18,7 @@ function UserProfilePage(props) {
     }, [])
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
             .then(res => res.json())
             .then(json => props.getPosts(json))
     }, [])

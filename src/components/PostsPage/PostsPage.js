@@ -11,12 +11,9 @@ function PostsPage(props) {
           userId = location.pathname.replace(/[^0-9]/g,"");
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
             .then(res => res.json())
-            .then(json => props.setCurrentUser(json, userId))
-            .then(fetch('https://jsonplaceholder.typicode.com/posts')
-                .then(res => res.json())
-                .then(json => props.getPosts(json)))
+            .then(json => props.getPosts(json))
     }, [])
 
     const PostsContainer = styled.div`

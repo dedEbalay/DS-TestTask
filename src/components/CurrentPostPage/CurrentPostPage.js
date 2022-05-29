@@ -11,8 +11,6 @@ function CurrentPostPage(props) {
 
     const postId = location.pathname.slice(location.pathname.indexOf('posts')+6)
 
-    // const userId = location.pathname.slice(location.pathname.indexOf('users')+6, location.pathname.indexOf('/posts'))
-
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
             .then(res => res.json())

@@ -50,7 +50,7 @@ function AddCommentPage(props) {
           [email, setEmail] = useState(''),
           [comment, setComment] = useState('');
 
-    //Валидация будет если надо
+    //Валидация будет, если надо
 
     function submitComment(postId, name, email, comment) {
 
@@ -81,8 +81,10 @@ function AddCommentPage(props) {
                 e.preventDefault();
                 submitComment(props.postId, name, email, comment);
                 props.dropAll()
+                //Обработка удачного запроса будет, если надо
             }}
         >
+            
             <CommentFormTitle>Отправка комментария</CommentFormTitle>
             <NameInput value={name} onChange={(e) => {
                 setName(e.target.value)
