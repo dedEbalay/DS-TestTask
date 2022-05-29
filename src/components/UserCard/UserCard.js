@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { setCurrentUser, setLoading } from '../../redux/actions';
+import { setLoading } from '../../redux/actions';
 
 function UserCard(props) {
 
@@ -62,7 +62,6 @@ const mapStateToProps = (store) => {
 }
 
 const mapDispatchToProps = {
-    // setCurrentUser,
     setLoading
 }
 
